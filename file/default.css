@@ -197,7 +197,7 @@ main{display:none}
 .unlock-door.active{opacity:1;visibility:visible}
 
 /* Floating message popup */
-.popup-msg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,rgba(255,122,182,0.9),rgba(161,108,241,0.9));padding:20px 30px;border-radius:12px;color:#fff;font-weight:600;z-index:150;pointer-events:none;animation:popupAnim 1.2s ease-out}
+.popup-msg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,rgba(255,122,182,0.9),rgba(161,108,241,0.9));padding:20px 30px;border-radius:12px;color:#fff;font-weight:600;z-index:1000;pointer-events:none;animation:popupAnim 1.2s ease-out}
 @keyframes popupAnim{0%{opacity:0;transform:translate(-50%,-50%) scale(0.6)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
 
 /* Confetti */
