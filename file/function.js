@@ -247,6 +247,10 @@
   }
   
   function showPopupMessage(text) {
+    // Remove any existing popup first
+    const existingPopup = qs('.popup-msg');
+    if(existingPopup) existingPopup.remove();
+    
     const popup = document.createElement('div');
     popup.className = 'popup-msg';
     popup.textContent = text;
