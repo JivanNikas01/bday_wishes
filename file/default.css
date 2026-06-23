@@ -95,11 +95,24 @@ main{display:none}
   .lock-title{font-size:32px}
   .lock-subtitle{font-size:16px}
   .countdown-container{gap:8px;margin:32px 0}
-  .countdown-item{padding:18px 16px}
+  .countdown-item{padding:18px 16px;min-width:90px}
   .countdown-number{font-size:40px}
-  .countdown-label{font-size:10px}
-  .countdown-sep{font-size:28px}
+  .countdown-label{font-size:10px;margin-top:6px}
+  .countdown-sep{font-size:28px;margin:0 2px}
   .unlock-btn{padding:12px 20px;font-size:14px}
+  .lock-icon{font-size:48px}
+}
+
+@media(max-width:480px){
+  .lock-content{padding:16px 8px}
+  .lock-title{font-size:26px;margin-bottom:12px}
+  .lock-subtitle{font-size:14px;margin:8px 0 20px}
+  .countdown-container{gap:6px;margin:24px 0}
+  .countdown-item{padding:14px 12px;min-width:75px}
+  .countdown-number{font-size:32px}
+  .countdown-label{font-size:9px;margin-top:4px}
+  .countdown-sep{font-size:24px;margin:0 1px}
+  .unlock-btn{padding:10px 16px;font-size:12px}
 }
 
 /* small decorative animations */
@@ -116,15 +129,28 @@ main{display:none}
 #lockCanvas{position:absolute;inset:0;z-index:2}
 .lock-content{position:relative;z-index:10;max-width:90vw;width:100%;max-width:700px;text-align:center;padding:40px 20px;pointer-events:auto;overflow-y:auto;max-height:90vh}
 .lock-icon{font-size:60px;margin-bottom:12px;animation:pulse 2s ease-in-out infinite}
-.lock-title{font-family:'Great Vibes',cursive;font-size:48px;color:var(--accent3);margin:0 0 16px;text-shadow:0 8px 30px rgba(255,122,182,0.3),0 0 50px rgba(161,108,241,0.2)}
+.lock-title{font-family:'Great Vibes',cursive;font-size:48px;color:var(--accent3);margin:0 0 16px;text-shadow:0 8px 30px rgba(255,122,182,0.3),0 0 50px rgba(161,108,241,0.2);line-height:1.2}
 .lock-subtitle{font-size:20px;color:rgba(255,255,255,0.95);margin:12px 0 32px;font-weight:500;letter-spacing:0.5px}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 
-.countdown-container{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px 0;flex-wrap:wrap}
-.countdown-item{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,rgba(255,122,182,0.15),rgba(161,108,241,0.1));padding:28px 32px;border-radius:16px;border:2px solid rgba(255,122,182,0.5);box-shadow:0 0 40px rgba(255,122,182,0.3),0 0 80px rgba(161,108,241,0.2),inset 0 1px 3px rgba(255,255,255,0.1);backdrop-filter:blur(8px)}
-.countdown-number{font-size:56px;font-weight:900;color:var(--accent1);text-shadow:0 0 30px rgba(255,122,182,0.6),0 0 60px rgba(255,122,182,0.3)}
-.countdown-label{font-size:12px;color:rgba(255,255,255,0.85);letter-spacing:1.2px;margin-top:8px;font-weight:600}
-.countdown-sep{color:var(--accent1);font-size:40px;opacity:0.9;font-weight:900;text-shadow:0 0 30px rgba(255,122,182,0.5)}
+@media(min-width:1024px){
+  .lock-icon{font-size:80px}
+  .lock-title{font-size:54px}
+  .lock-subtitle{font-size:22px}
+  .countdown-item{padding:40px 48px;min-width:140px}
+  .countdown-number{font-size:72px}
+  .countdown-label{font-size:14px;margin-top:12px}
+  .countdown-sep{font-size:56px}
+  .lock-buttons{gap:16px}
+  .unlock-btn{padding:16px 32px;font-size:18px}
+}
+
+.countdown-container{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px auto;flex-wrap:wrap;max-width:1200px}
+.countdown-item{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,rgba(255,122,182,0.15),rgba(161,108,241,0.1));padding:32px 40px;border-radius:16px;border:2px solid rgba(255,122,182,0.5);box-shadow:0 0 40px rgba(255,122,182,0.3),0 0 80px rgba(161,108,241,0.2),inset 0 1px 3px rgba(255,255,255,0.1);backdrop-filter:blur(8px);min-width:120px;transition:all 0.3s ease}
+.countdown-item:hover{transform:translateY(-4px);box-shadow:0 0 50px rgba(255,122,182,0.5),0 0 100px rgba(161,108,241,0.3)}
+.countdown-number{font-size:64px;font-weight:900;color:var(--accent1);text-shadow:0 0 30px rgba(255,122,182,0.6),0 0 60px rgba(255,122,182,0.3);line-height:1}
+.countdown-label{font-size:13px;color:rgba(255,255,255,0.85);letter-spacing:1.2px;margin-top:10px;font-weight:600;text-transform:uppercase}
+.countdown-sep{color:var(--accent1);font-size:48px;opacity:0.9;font-weight:900;text-shadow:0 0 30px rgba(255,122,182,0.5);margin:0 4px}
 
 .rotating-quotes{height:60px;display:flex;align-items:center;justify-content:center;margin:24px 0}
 .quote-text{margin:0;font-size:16px;color:rgba(255,255,255,0.9);font-style:italic;animation:fadeInOut 4.5s ease-in-out infinite}

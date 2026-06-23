@@ -7,8 +7,8 @@
   
   // Birth date: 03 July 2005
   // Unlock date: 03 July 2026 00:00:00 IST
-  const BIRTH_DATE = new Date(2005, 6-1, 3, 0, 0, 0);
-  const UNLOCK_DATE = new Date(2026, 6-1, 3, 0, 0, 0);
+  const BIRTH_DATE = new Date(2005, 6, 3, 0, 0, 0);
+  const UNLOCK_DATE = new Date(2026, 6, 3, 0, 0, 0);
   
   let lockState = { clickCount: 0, loveScore: 0, unlocked: false };
   
@@ -72,6 +72,8 @@
     initLockCanvas();
     initLockQuotes();
     initLockButtons();
+    
+    // Update countdown immediately, then every second
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
@@ -470,7 +472,7 @@
   }
   
   function initTimer() {
-    const birth = new Date(2005, 6-1, 3, 0, 0, 0);
+    const birth = new Date(2005, 6, 3, 0, 0, 0);
     const el = qs('#ageText');
     if(!el) return;
     function update() { 
