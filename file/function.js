@@ -7,8 +7,8 @@
   
   // Birth date: 03 July 2005
   // Unlock date: 03 July 2026 00:00:00 IST
-  const BIRTH_DATE = new Date(2005, 6, 3, 0, 0, 0);
-  const UNLOCK_DATE = new Date(2026, 6, 3, 0, 0, 0);
+  const BIRTH_DATE = new Date('2005-07-03T00:00:00+05:30');
+  const UNLOCK_DATE = new Date('2026-07-03T00:00:00+05:30');
   
   let lockState = { clickCount: 0, loveScore: 0, unlocked: false };
   
@@ -64,21 +64,18 @@
   ];
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Lock page immediately
     document.body.classList.add('locked');
-    
-    setTimeout(()=>qs('#loader').style.display='none',1200);
+    setTimeout(() => qs('#loader').style.display='none', 1200);
     initLockScreen();
     initLockCanvas();
     initLockQuotes();
     initLockButtons();
     
-    // Update countdown immediately, then every second
+    // Always initialize countdown values immediately
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
     if(window.AOS) AOS.init({duration:900, once:true});
-    // Don't init birthday site until unlocked
   });
   
   function initLockCanvas() {
@@ -136,7 +133,16 @@
     const now = new Date();
     const diff = UNLOCK_DATE - now;
     
+    const dEl = qs('#countDays');
+    const hEl = qs('#countHours');
+    const mEl = qs('#countMins');
+    const sEl = qs('#countSecs');
+    
     if(diff <= 0) {
+      if(dEl) dEl.textContent = '00';
+      if(hEl) hEl.textContent = '00';
+      if(mEl) mEl.textContent = '00';
+      if(sEl) sEl.textContent = '00';
       unlockWebsite();
       return;
     }
@@ -146,11 +152,6 @@
     const hours = Math.floor((totalSeconds%86400)/3600);
     const mins = Math.floor((totalSeconds%3600)/60);
     const secs = totalSeconds%60;
-    
-    const dEl = qs('#countDays');
-    const hEl = qs('#countHours');
-    const mEl = qs('#countMins');
-    const sEl = qs('#countSecs');
     
     if(dEl) dEl.textContent = String(days).padStart(2,'0');
     if(hEl) hEl.textContent = String(hours).padStart(2,'0');
