@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Happy 20th Birthday, Shweta ❤️</title>
+        <title>Happy 21st Birthday, Shweta ❤️</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
         <link rel="stylesheet" href="file/default.css" />
@@ -16,6 +16,85 @@
                 <div class="heart"></div>
             </div>
             <div class="loader-text">Loading love...</div>
+        </div>
+
+        <!-- Lock Screen Overlay -->
+        <div id="lockScreen" class="lock-screen active">
+            <canvas id="lockCanvas"></canvas>
+            <div class="lock-content">
+                <div class="lock-icon">🔒</div>
+                <h1 class="lock-title">❤️ A Special Surprise Is Waiting For You, Shweta ❤️</h1>
+                <p class="lock-subtitle">Your Birthday Celebration Opens In...</p>
+                
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="countDays" class="countdown-number">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countHours" class="countdown-number">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countMins" class="countdown-number">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countSecs" class="countdown-number">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="rotating-quotes">
+                    <p id="rotatingQuote" class="quote-text">The wait is worth it for someone as special as you.</p>
+                </div>
+
+                <div class="lock-buttons">
+                    <button id="openSurpriseBtn" class="unlock-btn glow-btn">Open Surprise 🎁</button>
+                    <button id="cantWaitBtn" class="unlock-btn secondary">Click Here If You Can't Wait 😏</button>
+                </div>
+
+                <div class="lock-stats">
+                    <div class="love-score">Love Score: <span id="loveScore">0</span> ❤️</div>
+                    <div class="click-count">Clicks: <span id="clickCount">0</span></div>
+                </div>
+
+                <div class="extra-buttons">
+                    <button id="tryLuckBtn" class="mini-btn">Try Your Luck 🎰</button>
+                    <button id="passwordBtn" class="mini-btn">Secret Password 🔐</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luck Wheel Modal -->
+        <div id="wheelModal" class="modal hidden">
+            <div class="modal-inner">
+                <button class="modal-close" id="wheelClose">✕</button>
+                <div class="luck-wheel" id="luckWheel">
+                    <div class="wheel-slice">🤣 Nope</div>
+                    <div class="wheel-slice">❤️ Still Waiting</div>
+                    <div class="wheel-slice">🎂 Almost There</div>
+                    <div class="wheel-slice">😏 Nice Try</div>
+                    <div class="wheel-slice">💖 Patience Please</div>
+                    <div class="wheel-slice">🎁 Come Back Later</div>
+                </div>
+                <div class="wheel-pointer"></div>
+            </div>
+            <p id="wheelResult" class="wheel-result"></p>
+        </div>
+
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal hidden">
+            <div class="modal-inner">
+                <button class="modal-close" id="passwordClose">✕</button>
+                <h2>🔐 Secret Password</h2>
+                <input type="password" id="passwordInput" placeholder="Enter password..." class="password-input">
+                <button id="passwordSubmit" class="modal-btn">Submit</button>
+                <p id="passwordMsg" class="password-msg"></p>
+            </div>
         </div>
 
         <canvas id="bg-canvas"></canvas>
@@ -34,9 +113,9 @@
         <main>
             <section id="hero" class="hero fullscreen">
                 <div class="hero-inner">
-                    <h1 class="main-heading">Happy 20th Birthday, My Love ❤️</h1>
+                    <h1 class="main-heading">Happy 21st Birthday, My Love ❤️</h1>
                     <p class="sub">To the most beautiful person in my life, thank you for filling every day with happiness, love, and countless memories.</p>
-                    <div class="hero-count">03 July 2006 → 03 July 2026</div>
+                    <div class="hero-count">03 July 2005 → 03 July 2026</div>
                     <button id="heroOpen" class="cta">Open My Heart 💌</button>
                 </div>
                 <div class="rotating-timer" id="rotTimer">
@@ -45,7 +124,7 @@
                             <circle cx="50" cy="50" r="42" class="rot-bg" />
                             <circle cx="50" cy="50" r="38" class="rot-arc" />
                         </svg>
-                        <div class="timer-label">20 Years of Pure Magic ✨</div>
+                        <div class="timer-label">21 Years of Pure Magic ✨</div>
                         <div class="live-counter" id="liveCounter">You have been making the world beautiful for... <span id="ageText">20y 0m 0d 0h 0m 0s</span></div>
                     </div>
                 </div>
@@ -98,7 +177,7 @@
             <section id="finale" class="section finale">
                 <div class="big-heart">
                     <div class="heart-shape"></div>
-                    <h2 class="final-text">Happy 20th Birthday Shweta ❤️</h2>
+                    <h2 class="final-text">Happy 21st Birthday Shweta ❤️</h2>
                     <p class="final-sub">You are loved more than words can ever express.</p>
                     <button id="foreverBtn" class="cta big">Forever & Always 💖</button>
                 </div>

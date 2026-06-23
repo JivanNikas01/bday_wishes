@@ -92,6 +92,77 @@ body{
 
 /* cursor trail hearts */
 .trail-heart{position:fixed;pointer-events:none;z-index:9999;will-change:transform,opacity}
+
+/* Lock Screen */
+.lock-screen{position:fixed;inset:0;background:linear-gradient(180deg,#0b0210 0%,#1b0620 60%);display:flex;align-items:center;justify-content:center;z-index:200;opacity:1;visibility:visible;transition:opacity 0.8s ease,visibility 0.8s ease}
+.lock-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#lockCanvas{position:absolute;inset:0}
+.lock-content{position:relative;z-index:10;max-width:700px;text-align:center;padding:40px;pointer-events:auto}
+.lock-icon{font-size:48px;margin-bottom:8px}
+.lock-title{font-family:'Great Vibes',cursive;font-size:40px;color:var(--accent3);margin:0;text-shadow:0 6px 20px rgba(161,108,241,0.15)}
+.lock-subtitle{font-size:18px;color:rgba(255,255,255,0.8);margin:12px 0 24px}
+
+.countdown-container{display:flex;align-items:center;justify-content:center;gap:8px;margin:32px 0;flex-wrap:wrap}
+.countdown-item{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));padding:16px 20px;border-radius:12px;border:1px solid rgba(255,122,182,0.3);box-shadow:0 8px 32px rgba(161,108,241,0.08),inset 0 1px 2px rgba(255,255,255,0.05)}
+.countdown-number{font-size:32px;font-weight:700;color:var(--accent1);text-shadow:0 0 20px rgba(255,122,182,0.4)}
+.countdown-label{font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:1px;margin-top:4px}
+.countdown-sep{color:var(--accent2);font-size:24px;opacity:0.8}
+
+.rotating-quotes{height:60px;display:flex;align-items:center;justify-content:center;margin:24px 0}
+.quote-text{margin:0;font-size:16px;color:rgba(255,255,255,0.9);font-style:italic;animation:fadeInOut 4.5s ease-in-out infinite}
+@keyframes fadeInOut{0%{opacity:0;transform:translateY(-10px)}20%{opacity:1;transform:translateY(0)}80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+
+.lock-buttons{display:flex;flex-direction:column;gap:12px;margin:32px 0}
+.unlock-btn{background:linear-gradient(90deg,var(--accent2),var(--accent1));border:none;padding:14px 28px;border-radius:30px;color:#fff;font-weight:600;cursor:pointer;font-size:16px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 12px 30px rgba(161,108,241,0.15)}
+.unlock-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(161,108,241,0.25)}
+.unlock-btn.secondary{background:linear-gradient(90deg,rgba(255,122,182,0.6),rgba(161,108,241,0.6));border:1px solid rgba(255,255,255,0.1)}
+.glow-btn{box-shadow:0 0 30px rgba(255,122,182,0.3),0 12px 30px rgba(161,108,241,0.15);animation:glow-pulse 2s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 30px rgba(255,122,182,0.3),0 12px 30px rgba(161,108,241,0.15)}50%{box-shadow:0 0 50px rgba(255,122,182,0.5),0 12px 40px rgba(161,108,241,0.25)}}
+
+.lock-stats{margin:20px 0;display:flex;justify-content:center;gap:24px}
+.love-score,.click-count{font-size:14px;color:rgba(255,255,255,0.8);font-weight:600}
+
+.extra-buttons{display:flex;gap:8px;justify-content:center;margin:20px 0;flex-wrap:wrap}
+.mini-btn{background:linear-gradient(90deg,rgba(255,122,182,0.5),rgba(161,108,241,0.5));border:1px solid rgba(255,255,255,0.1);padding:8px 12px;border-radius:8px;color:#fff;cursor:pointer;font-size:12px;transition:all 0.2s}
+.mini-btn:hover{background:linear-gradient(90deg,rgba(255,122,182,0.7),rgba(161,108,241,0.7));transform:translateY(-1px)}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:300;opacity:1;visibility:visible;transition:opacity 0.3s}
+.modal.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.modal-inner{background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border-radius:16px;padding:32px;max-width:500px;backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1)}
+.modal-close{position:absolute;top:12px;right:12px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.modal-inner h2{margin:0 0 16px;color:var(--accent1);font-family:'Great Vibes',cursive;font-size:28px}
+.password-input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;font-size:14px;margin:12px 0}
+.password-input::placeholder{color:rgba(255,255,255,0.5)}
+.modal-btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:10px 20px;border-radius:8px;color:#fff;cursor:pointer;margin-top:8px}
+.password-msg,.wheel-result{margin-top:12px;color:rgba(255,255,255,0.9);text-align:center;font-size:14px}
+
+/* Luck Wheel */
+.luck-wheel{width:280px;height:280px;margin:20px auto;border-radius:50%;background:conic-gradient(from 0deg,#ff7ab6,#a16cf1,#e6b2a6,#ff7ab6,#a16cf1,#e6b2a6);position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wheel-slice{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600}
+.wheel-pointer{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:20px solid#ff7ab6;z-index:10}
+
+/* Button shake animation */
+@keyframes shake{0%,100%{transform:translateX(0)}10%{transform:translateX(-8px)}20%{transform:translateX(8px)}30%{transform:translateX(-8px)}40%{transform:translateX(8px)}}
+.shake{animation:shake 0.4s}
+@keyframes unlock-animation{0%{opacity:0}40%{opacity:1}60%{opacity:1}100%{opacity:0}}
+.unlock-anim{animation:unlock-animation 3s ease-out}
+
+/* unlock door */
+.unlock-door{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffd700,#ffed4e);z-index:205;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 1s;font-family:'Great Vibes',cursive;font-size:36px;color:#0b0210}
+.unlock-door.active{opacity:1;visibility:visible}
+
+/* Floating message popup */
+.popup-msg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,rgba(255,122,182,0.9),rgba(161,108,241,0.9));padding:20px 30px;border-radius:12px;color:#fff;font-weight:600;z-index:150;pointer-events:none;animation:popupAnim 1.2s ease-out}
+@keyframes popupAnim{0%{opacity:0;transform:translate(-50%,-50%) scale(0.6)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+
+/* Confetti */
+.confetti{position:fixed;pointer-events:none;z-index:99}
+
+/* Easter egg glow */
+.easter-glow{position:fixed;inset:0;background:radial-gradient(circle at center,rgba(255,122,182,0.3),transparent);pointer-events:none;z-index:199;animation:easterGlow 1.8s ease-out}
+@keyframes easterGlow{0%{opacity:1}100%{opacity:0}}
+
 body {
   margin: 0;
   padding: 0;
