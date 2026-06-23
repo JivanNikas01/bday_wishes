@@ -251,7 +251,7 @@
     popup.className = 'popup-msg';
     popup.textContent = text;
     document.body.appendChild(popup);
-    setTimeout(() => popup.remove(), 3000);
+    setTimeout(() => popup.remove(), 5000);
   }
   
   function triggerEasterEgg() {
