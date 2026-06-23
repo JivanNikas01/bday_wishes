@@ -8,7 +8,7 @@
   // Birth date: 03 July 2005
   // Unlock date: 03 July 2026 00:00:00 IST
   const BIRTH_DATE = new Date('2005-07-03T00:00:00+05:30');
-  const UNLOCK_DATE = new Date('2026-07-03T00:00:00+05:30');
+  const UNLOCK_DATE = new Date('2026-06-03T00:00:00+05:30');
   
   let lockState = { clickCount: 0, loveScore: 0, unlocked: false };
   
