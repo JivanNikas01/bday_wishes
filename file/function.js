@@ -64,6 +64,9 @@
   ];
   
   document.addEventListener('DOMContentLoaded', () => {
+    // Lock page immediately
+    document.body.classList.add('locked');
+    
     setTimeout(()=>qs('#loader').style.display='none',1200);
     initLockScreen();
     initLockCanvas();
@@ -73,7 +76,7 @@
     setInterval(updateCountdown, 1000);
     
     if(window.AOS) AOS.init({duration:900, once:true});
-    initBirthdaySite();
+    // Don't init birthday site until unlocked
   });
   
   function initLockCanvas() {
@@ -323,12 +326,23 @@
     launchConfetti(150);
     
     setTimeout(() => {
+      // Hide lock screen
       qs('#lockScreen').classList.add('hidden');
       door.remove();
+      
+      // Show all content
       if(qs('header')) qs('header').style.display = 'flex';
       if(qs('main')) qs('main').style.display = 'block';
       if(qs('.footer')) qs('.footer').style.display = 'block';
-      document.body.style.overflow = 'auto';
+      
+      // Unlock scrolling
+      document.body.classList.remove('locked');
+      
+      // Initialize birthday site
+      setTimeout(() => {
+        if(window.AOS) AOS.init({duration:900, once:true});
+        initBirthdaySite();
+      }, 100);
     }, 3000);
   }
   

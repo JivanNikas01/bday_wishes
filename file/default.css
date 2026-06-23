@@ -13,8 +13,12 @@ body{
   margin:0;padding:0;background:linear-gradient(180deg,#0b0210 0%,#1b0620 60%);color:var(--soft);font-family:'Poppins',system-ui,Arial,sans-serif;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
 }
+body.locked{overflow:hidden!important}
 #bg-canvas{position:fixed;inset:0;z-index:0}
-.topbar{position:fixed;top:12px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:60}
+header{display:none}
+main{display:none}
+.footer{display:none}
+.topbar{position:fixed;top:12px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:50}
 .brand{font-family:'Great Vibes',cursive;color:var(--accent3);font-size:20px;display:flex;flex-direction:column}
 .name{font-size:22px;font-weight:700;color:var(--soft);letter-spacing:0.6px}
 .controls{display:flex;gap:8px}
@@ -86,6 +90,18 @@ body{
   .main-heading{font-size:34px}
 }
 
+@media(max-width:768px){
+  .lock-content{padding:20px 12px}
+  .lock-title{font-size:32px}
+  .lock-subtitle{font-size:16px}
+  .countdown-container{gap:8px;margin:32px 0}
+  .countdown-item{padding:18px 16px}
+  .countdown-number{font-size:40px}
+  .countdown-label{font-size:10px}
+  .countdown-sep{font-size:28px}
+  .unlock-btn{padding:12px 20px;font-size:14px}
+}
+
 /* small decorative animations */
 .heartbeat{animation:heartbeat 1.6s ease-in-out infinite}
 @keyframes heartbeat{0%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(1)}100%{transform:scale(1)}}
@@ -94,19 +110,21 @@ body{
 .trail-heart{position:fixed;pointer-events:none;z-index:9999;will-change:transform,opacity}
 
 /* Lock Screen */
-.lock-screen{position:fixed;inset:0;background:linear-gradient(180deg,#0b0210 0%,#1b0620 60%);display:flex;align-items:center;justify-content:center;z-index:200;opacity:1;visibility:visible;transition:opacity 0.8s ease,visibility 0.8s ease}
+.lock-screen{position:fixed;inset:0;background:#0b0210;display:flex;align-items:center;justify-content:center;z-index:999;opacity:1;visibility:visible;transition:opacity 0.8s ease,visibility 0.8s ease;width:100%;height:100vh;overflow:hidden}
+.lock-screen::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0b0210 0%,#1b0620 60%);z-index:1}
 .lock-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#lockCanvas{position:absolute;inset:0}
-.lock-content{position:relative;z-index:10;max-width:700px;text-align:center;padding:40px;pointer-events:auto}
-.lock-icon{font-size:48px;margin-bottom:8px}
-.lock-title{font-family:'Great Vibes',cursive;font-size:40px;color:var(--accent3);margin:0;text-shadow:0 6px 20px rgba(161,108,241,0.15)}
-.lock-subtitle{font-size:18px;color:rgba(255,255,255,0.8);margin:12px 0 24px}
+#lockCanvas{position:absolute;inset:0;z-index:2}
+.lock-content{position:relative;z-index:10;max-width:90vw;width:100%;max-width:700px;text-align:center;padding:40px 20px;pointer-events:auto;overflow-y:auto;max-height:90vh}
+.lock-icon{font-size:60px;margin-bottom:12px;animation:pulse 2s ease-in-out infinite}
+.lock-title{font-family:'Great Vibes',cursive;font-size:48px;color:var(--accent3);margin:0 0 16px;text-shadow:0 8px 30px rgba(255,122,182,0.3),0 0 50px rgba(161,108,241,0.2)}
+.lock-subtitle{font-size:20px;color:rgba(255,255,255,0.95);margin:12px 0 32px;font-weight:500;letter-spacing:0.5px}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 
-.countdown-container{display:flex;align-items:center;justify-content:center;gap:8px;margin:32px 0;flex-wrap:wrap}
-.countdown-item{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));padding:16px 20px;border-radius:12px;border:1px solid rgba(255,122,182,0.3);box-shadow:0 8px 32px rgba(161,108,241,0.08),inset 0 1px 2px rgba(255,255,255,0.05)}
-.countdown-number{font-size:32px;font-weight:700;color:var(--accent1);text-shadow:0 0 20px rgba(255,122,182,0.4)}
-.countdown-label{font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:1px;margin-top:4px}
-.countdown-sep{color:var(--accent2);font-size:24px;opacity:0.8}
+.countdown-container{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px 0;flex-wrap:wrap}
+.countdown-item{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,rgba(255,122,182,0.15),rgba(161,108,241,0.1));padding:28px 32px;border-radius:16px;border:2px solid rgba(255,122,182,0.5);box-shadow:0 0 40px rgba(255,122,182,0.3),0 0 80px rgba(161,108,241,0.2),inset 0 1px 3px rgba(255,255,255,0.1);backdrop-filter:blur(8px)}
+.countdown-number{font-size:56px;font-weight:900;color:var(--accent1);text-shadow:0 0 30px rgba(255,122,182,0.6),0 0 60px rgba(255,122,182,0.3)}
+.countdown-label{font-size:12px;color:rgba(255,255,255,0.85);letter-spacing:1.2px;margin-top:8px;font-weight:600}
+.countdown-sep{color:var(--accent1);font-size:40px;opacity:0.9;font-weight:900;text-shadow:0 0 30px rgba(255,122,182,0.5)}
 
 .rotating-quotes{height:60px;display:flex;align-items:center;justify-content:center;margin:24px 0}
 .quote-text{margin:0;font-size:16px;color:rgba(255,255,255,0.9);font-style:italic;animation:fadeInOut 4.5s ease-in-out infinite}
