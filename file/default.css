@@ -176,8 +176,9 @@ main{display:none}
 .modal-inner{background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border-radius:16px;padding:32px;max-width:500px;backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1)}
 .modal-close{position:absolute;top:12px;right:12px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
 .modal-inner h2{margin:0 0 16px;color:var(--accent1);font-family:'Great Vibes',cursive;font-size:28px}
-.password-input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;font-size:14px;margin:12px 0}
-.password-input::placeholder{color:rgba(255,255,255,0.5)}
+.password-input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.12);color:#fff;font-size:14px;margin:12px 0;transition:all 0.3s}
+.password-input::placeholder{color:rgba(255,255,255,0.6)}
+.password-input:focus{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.5);outline:none;box-shadow:0 0 12px rgba(255,122,182,0.3)}
 .modal-btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:10px 20px;border-radius:8px;color:#fff;cursor:pointer;margin-top:8px}
 .password-msg,.wheel-result{margin-top:12px;color:rgba(255,255,255,0.9);text-align:center;font-size:14px}
 
