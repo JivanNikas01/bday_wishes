@@ -1,11 +1,124 @@
+/* Premium romantic styles for Shweta's birthday */
+:root{
+  --bg:#0f0510; /* dark romantic */
+  --glass: rgba(255,255,255,0.06);
+  --accent1: #ff7ab6; /* pink */
+  --accent2: #a16cf1; /* purple */
+  --accent3: #e6b2a6; /* rose gold */
+  --soft:#fff7fb;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;padding:0;background:linear-gradient(180deg,#0b0210 0%,#1b0620 60%);color:var(--soft);font-family:'Poppins',system-ui,Arial,sans-serif;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+#bg-canvas{position:fixed;inset:0;z-index:0}
+.topbar{position:fixed;top:12px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:60}
+.brand{font-family:'Great Vibes',cursive;color:var(--accent3);font-size:20px;display:flex;flex-direction:column}
+.name{font-size:22px;font-weight:700;color:var(--soft);letter-spacing:0.6px}
+.controls{display:flex;gap:8px}
+.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:8px 12px;border-radius:10px;color:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(161,108,241,0.12)}
+.btn.small{padding:6px 10px;font-size:14px}
+
+.loader{position:fixed;inset:0;background:linear-gradient(180deg,rgba(15,5,16,0.95),rgba(14,6,12,0.95));display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999}
+.heart-loader .heart{width:60px;height:60px;background:linear-gradient(135deg,var(--accent1),var(--accent2));transform:rotate(-45deg);border-radius:8px 8px 8px 8px;position:relative;animation:beat 1s infinite}
+.heart-loader .heart:before,.heart-loader .heart:after{content:'';position:absolute;width:60px;height:60px;background:linear-gradient(135deg,var(--accent1),var(--accent2));border-radius:50%}
+.heart-loader .heart:before{top:-30px;left:0}
+.heart-loader .heart:after{left:30px;top:0}
+.loader-text{margin-top:12px;color:rgba(255,255,255,0.9)}
+@keyframes beat{0%,100%{transform:scale(1) rotate(-45deg)}50%{transform:scale(1.08) rotate(-45deg)}}
+
+.hero.fullscreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 20px;position:relative;z-index:2}
+.hero-inner{max-width:900px;text-align:center}
+.main-heading{font-family:'Great Vibes',cursive;font-size:48px;margin:0;color:var(--soft);text-shadow:0 6px 30px rgba(161,108,241,0.14)}
+.sub{margin:10px 0 22px;color:rgba(255,255,255,0.85);font-size:18px}
+.hero-count{margin-bottom:18px;opacity:0.9}
+.cta{background:linear-gradient(90deg,var(--accent2),var(--accent1));border:none;padding:14px 22px;border-radius:30px;color:#fff;font-weight:600;cursor:pointer;box-shadow:0 12px 30px rgba(161,108,241,0.12);transition:transform .24s}
+.cta:hover{transform:translateY(-4px)}
+
+.rotating-timer{position:absolute;right:40px;bottom:40px;width:220px;height:220px;display:flex;align-items:center;justify-content:center}
+.rot-wrap{position:relative;animation:rotate 20s linear infinite}
+.rot-svg{width:220px;height:220px;filter:drop-shadow(0 10px 30px rgba(161,108,241,0.12))}
+.rot-bg{fill:none;stroke:rgba(255,255,255,0.03);stroke-width:4}
+.rot-arc{fill:none;stroke:linear-gradient(45deg,var(--accent1),var(--accent2));stroke-width:6;stroke-dasharray:120;stroke-dashoffset:0;stroke:#ff7ab6;opacity:0.95}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.timer-label{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-weight:600}
+.live-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:12px;opacity:0.95}
+
+.section{padding:72px 20px;position:relative;z-index:2}
+.section-title{font-size:26px;margin:0 0 18px;color:var(--accent3);text-align:center}
+
+.gallery-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.polaroid{width:200px;height:240px;background:linear-gradient(180deg,#fff,#fff);padding:12px;border-radius:12px;box-shadow:0 14px 40px rgba(2,2,6,0.6);transform:translateY(0);transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.polaroid img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.polaroid:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 28px 60px rgba(2,2,6,0.6)}
+
+.glass-card{max-width:800px;margin:0 auto;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));border-radius:16px;padding:28px;backdrop-filter:blur(8px);box-shadow:0 10px 40px rgba(10,6,20,0.6)}
+.typewriter{white-space:pre-wrap;font-family:inherit;font-size:16px;color:rgba(255,255,255,0.92);line-height:1.6;margin:0}
+
+.quotes-carousel{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;height:140px}
+.quote{font-size:18px;opacity:0.95;padding:18px 24px;border-radius:12px;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));box-shadow:0 8px 30px rgba(0,0,0,0.4)}
+
+.wishes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:1000px;margin:16px auto}
+.wish{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:14px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+
+.timeline{max-width:900px;margin:20px auto;display:grid;gap:14px}
+.milestone{display:flex;align-items:center;gap:14px;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 6px 24px rgba(0,0,0,0.35)}
+.milestone .dot{font-size:20px}
+
+.finale{display:flex;align-items:center;justify-content:center;min-height:60vh}
+.big-heart{display:flex;flex-direction:column;align-items:center;gap:12px}
+.heart-shape{width:200px;height:180px;background:radial-gradient(circle at 30% 30%,var(--accent1),var(--accent2));transform:rotate(-45deg);clip-path:polygon(50% 0%, 100% 30%, 80% 100%, 50% 82%, 20% 100%, 0% 30%);border-radius:24px;box-shadow:0 24px 60px rgba(161,108,241,0.18)}
+.final-text{font-family:'Great Vibes',cursive;font-size:36px;margin:6px 0}
+.final-sub{opacity:0.95}
+
+.footer{padding:22px;text-align:center;color:rgba(255,255,255,0.65)}
+
+/* modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.4),rgba(0,0,0,0.6));z-index:100}
+.modal .modal-content{background:var(--glass);padding:24px;border-radius:12px;max-width:640px}
+.modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:20px}
+
+/* responsiveness */
+@media(max-width:900px){
+  .rotating-timer{display:none}
+  .main-heading{font-size:34px}
+}
+
+/* small decorative animations */
+.heartbeat{animation:heartbeat 1.6s ease-in-out infinite}
+@keyframes heartbeat{0%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(1)}100%{transform:scale(1)}}
+
+/* cursor trail hearts */
+.trail-heart{position:fixed;pointer-events:none;z-index:9999;will-change:transform,opacity}
 body {
   margin: 0;
   padding: 0;
-  background-color: #000; /* solid black background, images removed */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   color: white;
   font-size: 14px;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   overflow: auto;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 a {
   color: white;
@@ -20,22 +133,31 @@ a {
   width: 1100px;
   height: 680px;
   margin-top: 10px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
 }
 #text {
-  width: 272px;
+  width: 320px;
   height: 560px;
-  left: 188px;
-  top: 80px;
+  left: 150px;
+  top: 50px;
   position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 #code {
   display: none;
-  color: rgb(196, 255, 255);
+  color: #ffffff;
   font-size: 16px;
-  margin-top: 70px;
-  line-height: 25px;
-  font-size: larger;
-  font-weight: bolder;
+  margin-top: 30px;
+  line-height: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: float 3s ease-in-out infinite;
 }
 #clock-box {
   position: absolute;
@@ -58,6 +180,11 @@ a {
   margin: 0 auto;
   width: 1100px;
   height: 680px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3), 
+              0 0 60px rgba(240, 147, 251, 0.2),
+              0 0 80px rgba(79, 172, 254, 0.15);
+  background: rgba(255, 255, 255, 0.05);
 }
 #error {
   margin: 0 auto;
@@ -70,10 +197,24 @@ a {
 }
 .say {
   margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.say:hover {
+  transform: scale(1.05);
+}
+
+.emoji-large {
+  font-size: 48px;
+  margin-left: 0;
+  animation: bounce 1s ease-in-out infinite;
 }
 .space {
   margin-right: 150px;
 }
+
+#header {\n  text-align: center;\n  padding: 20px 0;\n  animation: fadeInDown 1s ease;\n}\n\n#header h1 {\n  font-family: 'Pacifico', cursive;\n  font-size: 48px;\n  margin: 0;\n  color: white;\n  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3),\n               0 0 20px rgba(255, 255, 255, 0.5);\n  animation: float 3s ease-in-out infinite;\n}\n\n@keyframes fadeInDown {\n  from {\n    opacity: 0;\n    transform: translateY(-30px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}
 
 #message-box{
   position: absolute;

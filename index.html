@@ -1,9 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Happy 20th Birthday, Shweta ❤️</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+        <link rel="stylesheet" href="file/default.css" />
+        <meta name="theme-color" content="#f9eff6" />
+    </head>
+    <body>
+
+        <div id="loader" class="loader">
+            <div class="heart-loader">
+                <div class="heart"></div>
+            </div>
+            <div class="loader-text">Loading love...</div>
+        </div>
+
+        <canvas id="bg-canvas"></canvas>
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="great">Happy 20th Birthday,</span>
+                <div class="name heartbeat">Shweta <span class="emoji">❤️</span></div>
+            </div>
+            <div class="controls">
+                <button id="musicToggle" class="btn small">Music</button>
+                <button id="openHeart" class="btn small">Open My Heart 💌</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="hero fullscreen">
+                <div class="hero-inner">
+                    <h1 class="main-heading">Happy 20th Birthday, My Love ❤️</h1>
+                    <p class="sub">To the most beautiful person in my life, thank you for filling every day with happiness, love, and countless memories.</p>
+                    <div class="hero-count">03 July 2006 → 03 July 2026</div>
+                    <button id="heroOpen" class="cta">Open My Heart 💌</button>
+                </div>
+                <div class="rotating-timer" id="rotTimer">
+                    <div class="rot-wrap">
+                        <svg viewBox="0 0 100 100" class="rot-svg">
+                            <circle cx="50" cy="50" r="42" class="rot-bg" />
+                            <circle cx="50" cy="50" r="38" class="rot-arc" />
+                        </svg>
+                        <div class="timer-label">20 Years of Pure Magic ✨</div>
+                        <div class="live-counter" id="liveCounter">You have been making the world beautiful for... <span id="ageText">20y 0m 0d 0h 0m 0s</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2 class="section-title">Photo Memories</h2>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- placeholders -->
+                </div>
+            </section>
+
+            <section id="loveLetter" class="section">
+                <h2 class="section-title">A Letter To You</h2>
+                <div class="glass-card" data-aos="fade-up">
+                    <pre id="typewriter" class="typewriter"></pre>
+                </div>
+            </section>
+
+            <section id="quotes" class="section">
+                <h2 class="section-title">Sweet Quotes</h2>
+                <div class="quotes-carousel" id="quotesCarousel">
+                    <!-- quotes injected -->
+                </div>
+            </section>
+
+            <section id="wishes" class="section">
+                <h2 class="section-title">Birthday Wishes</h2>
+                <div class="wishes-grid">
+                    <div class="wish">✨ Happiness beyond limits</div>
+                    <div class="wish">✨ Success in every dream</div>
+                    <div class="wish">✨ Endless laughter</div>
+                    <div class="wish">✨ Good health always</div>
+                    <div class="wish">✨ Beautiful memories</div>
+                    <div class="wish">✨ Love that grows stronger every day</div>
+                </div>
+            </section>
+
+            <section id="timeline" class="section">
+                <h2 class="section-title">Our Romantic Timeline</h2>
+                <div class="timeline">
+                    <div class="milestone" data-aos="fade-right"><div class="dot">❤️</div><div class="txt">First Conversation</div></div>
+                    <div class="milestone" data-aos="fade-left"><div class="dot">😊</div><div class="txt">First Smile</div></div>
+                    <div class="milestone" data-aos="fade-right"><div class="dot">🌟</div><div class="txt">First Special Moment</div></div>
+                    <div class="milestone" data-aos="fade-left"><div class="dot">📸</div><div class="txt">Countless Memories</div></div>
+                    <div class="milestone" data-aos="fade-up"><div class="dot">🎂</div><div class="txt">Happy 20th Birthday</div></div>
+                </div>
+            </section>
+
+            <section id="finale" class="section finale">
+                <div class="big-heart">
+                    <div class="heart-shape"></div>
+                    <h2 class="final-text">Happy 20th Birthday Shweta ❤️</h2>
+                    <p class="final-sub">You are loved more than words can ever express.</p>
+                    <button id="foreverBtn" class="cta big">Forever & Always 💖</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            Made with Endless Love ❤️ for Shweta
+        </footer>
+
+        <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_7bf2f2a5d2.mp3?filename=warm-memories-10019.mp3"></audio>
+
+        <div id="modal" class="modal" aria-hidden="true">
+            <div class="modal-content" id="modalContent"></div>
+            <button class="modal-close" id="modalClose">✕</button>
+        </div>
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script src="file/function.js"></script>
+    </body>
+</html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>HBD love</title>	    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday! 🎉</title>	    
     <link type="text/css" rel="stylesheet" href="file/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="file/jquery.min.js"></script>
     <script type="text/javascript" src="file/jscex.min.js"></script>
     <script type="text/javascript" src="file/jscex-parser.js"></script>
@@ -18,10 +142,52 @@
             var audio = document.getElementById("myAudio");
             audio.play();
         }
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            const size = Math.random() * 10 + 5;
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 0.5;
+            const xPos = Math.random() * 100;
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#FFD93D', '#FF1493', '#00CED1', '#32CD32', '#FF69B4'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.position = 'fixed';
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            confetti.style.backgroundColor = color;
+            confetti.style.borderRadius = '50%';
+            confetti.style.left = xPos + '%';
+            confetti.style.top = '-10px';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.animation = 'fall ' + duration + 's linear ' + delay + 's forwards';
+            confetti.style.zIndex = '9999';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+        }
+        
+        document.addEventListener('click', function() {
+            for(let i = 0; i < 15; i++) {
+                setTimeout(() => createConfetti(), i * 30);
+            }
+        });
     </script>
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="main">
+        <div id="header">
+            <h1>🎉 Happy Birthday 🎉</h1>
+        </div>
         <div id="error"><a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a> (<a href="http://firefox.com.cn/download/">Firefox</a>)</div>
         <audio autoplay="autoplay" height="100" width="100" id="myAudio">
             <source src="aud.mp3" type="audio/mp3" />
@@ -30,13 +196,15 @@
         <div id="wrap">
             <div id="text">
                 <div id="code">
+                    <span class="say emoji-large">🎉</span><br>
                     <span class="say">Hey you 💞</span><br>
-                    <span class="say">Happy Birthday 🎈</span><br>
+                    <span class="say"><strong>Happy Birthday</strong> 🎈</span><br>
                     <span class="say">May God bless you 🍀</span><br>
                     <span class="say">And give u many happiness 💕</span><br>
-                    <span class="say">Just saying... you're pretty awesome ❤️</span><br>
-                    <span class="say">Sending good vibes and maybe a wink 😏</span><br>
-                    <span class="say">Hope u have a great day today ❤️😘</span><br>
+                    <span class="say">Just saying... you're pretty<br/>&nbsp;&nbsp;awesome ❤️</span><br>
+                    <span class="say">Sending good vibes and<br/>&nbsp;&nbsp;maybe a wink 😏</span><br>
+                    <span class="say">Hope u have a great day<br/>&nbsp;&nbsp;today ❤️😘</span><br>
+                    <span class="say emoji-large">🎊</span><br>
                 </div>
             </div>
             <div id="clock-box">
