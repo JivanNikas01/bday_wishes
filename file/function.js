@@ -240,6 +240,20 @@
   }
   
   function handlePasswordSubmit() {
+    const inputEl = qs('#passwordInput');
+    if(!inputEl) return;
+    const val = (inputEl.value || '').trim();
+    const CORRECT_PASSWORD = 'lebhikari';
+
+    if(val && val.toLowerCase() === CORRECT_PASSWORD) {
+      qs('#passwordMsg').textContent = '✅ Password correct! Unlocking...';
+      inputEl.value = '';
+      qs('#passwordModal').classList.add('hidden');
+      setTimeout(() => unlockWebsite(), 600);
+      return;
+    }
+
+    // Wrong password flow
     lockState.loveScore += 3;
     qs('#loveScore').textContent = lockState.loveScore;
     const msg = PASSWORD_MESSAGES[Math.floor(Math.random()*PASSWORD_MESSAGES.length)];
@@ -447,7 +461,7 @@
     if(!el) return;
     let i=0; 
     function step() { 
-      el.textContent = text.slice(0,i) + (i%2? '▌':''); 
+      el.textContent = text.slice(0,i) + (i%2? '▌':'');
       i++; 
       if(i<=text.length) setTimeout(step, 28); 
     }
