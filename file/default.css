@@ -171,7 +171,25 @@ main{display:none}
 .mini-btn:hover{background:linear-gradient(90deg,rgba(255,122,182,0.7),rgba(161,108,241,0.7));transform:translateY(-1px)}
 
 /* Modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1001;opacity:1;visibility:visible;transition:opacity 0.3s}
+/* .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1001;opacity:1;visibility:visible;transition:opacity 0.3s} */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1001;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s;
+}
+
+.modal.show{
+    display:flex;
+    opacity:1;
+    visibility:visible;
+}
 .modal.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .modal-inner{background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border-radius:16px;padding:32px;max-width:500px;backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1)}
 .modal-close{position:absolute;top:12px;right:12px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}

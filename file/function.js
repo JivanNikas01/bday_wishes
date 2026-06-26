@@ -448,18 +448,39 @@
     });
   }
   
-  function openModal(html) { 
-    const modal = qs('#modal'); 
-    qs('#modalContent').innerHTML=html; 
-    modal.style.display='flex'; 
-    modal.setAttribute('aria-hidden','false'); 
+  // function openModal(html) { 
+  //   const modal = qs('#modal'); 
+  //   qs('#modalContent').innerHTML=html; 
+  //   modal.style.display='flex'; 
+  //   modal.setAttribute('aria-hidden','false'); 
+  // }
+  
+  // function closeModal() { 
+  //   const modal = qs('#modal'); 
+  //   modal.style.display='none'; 
+  //   modal.setAttribute('aria-hidden','true'); 
+  //   qs('#modalContent').innerHTML=''; 
+  // }
+
+  function openModal(html)
+  {
+      const modal = qs('#modal');
+
+      qs('#modalContent').innerHTML = html;
+
+      modal.classList.add("show");
+
+      modal.setAttribute("aria-hidden","false");
   }
   
-  function closeModal() { 
-    const modal = qs('#modal'); 
-    modal.style.display='none'; 
-    modal.setAttribute('aria-hidden','true'); 
-    qs('#modalContent').innerHTML=''; 
+  function closeModal(){
+      const modal = qs('#modal');
+
+      modal.classList.remove("show");
+
+      modal.setAttribute("aria-hidden","true");
+
+      qs('#modalContent').innerHTML = "";
   }
   
   const modalClose = qs('#modalClose');
