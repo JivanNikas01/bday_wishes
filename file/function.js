@@ -416,12 +416,12 @@
     const grid = qs('#galleryGrid');
     if(!grid) return;
     const urls = [
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80',
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80',
-      'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&q=80',
-      'https://images.unsplash.com/photo-1504198266286-1659872e6590?w=800&q=80',
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80'
+      '../1.jpeg',
+      '../4.jpeg',
+      '../8.jpeg',
+      '../10.jpeg',
+      '../photos/16.jpeg',
+      '../photos/18.jpeg'
     ];
     urls.forEach((u,i) => {
       const p = document.createElement('div'); 
