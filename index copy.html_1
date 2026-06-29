@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>❤️ Happy 21st Birthday, Shweta ❤️</title>
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#f9eff6">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="file/default.css">
+
+    <!-- jQuery -->
+    <script src="file/jquery.min.js"></script>
+
+    <!-- Jscex -->
+    <script src="file/jscex.min.js"></script>
+    <script src="file/jscex-parser.js"></script>
+    <script src="file/jscex-jit.js"></script>
+    <script src="file/jscex-builderbase.min.js"></script>
+    <script src="file/jscex-async.min.js"></script>
+    <script src="file/jscex-async-powerpack.min.js"></script>
+
+</head>
+
+<body>
+    <!-- ===================================================== -->
+<!-- Loader -->
+<!-- ===================================================== -->
+
+<div id="loader" class="loader">
+
+    <div class="heart-loader">
+        <div class="heart"></div>
+    </div>
+
+    <div class="loader-text">
+        Loading love...
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- LOCK SCREEN -->
+<!-- ===================================================== -->
+
+<div id="lockScreen" class="lock-screen active">
+
+    <canvas id="lockCanvas"></canvas>
+
+    <div class="lock-content">
+
+        <div class="lock-icon">
+            🔒
+        </div>
+
+        <h1 class="lock-title">
+            ❤️ A Special Surprise Is Waiting For You ❤️
+        </h1>
+
+        <p class="lock-subtitle">
+            Birthday Countdown
+        </p>
+
+        <div class="countdown-container">
+
+            <div class="countdown-item">
+                <span id="countDays" class="countdown-number">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+
+            <span class="countdown-sep">:</span>
+
+            <div class="countdown-item">
+                <span id="countHours" class="countdown-number">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+
+            <span class="countdown-sep">:</span>
+
+            <div class="countdown-item">
+                <span id="countMins" class="countdown-number">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+
+            <span class="countdown-sep">:</span>
+
+            <div class="countdown-item">
+                <span id="countSecs" class="countdown-number">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+
+        </div>
+
+        <div class="rotating-quotes">
+
+            <p id="rotatingQuote" class="quote-text">
+
+                Every second brings us closer to your special day ❤️
+
+            </p>
+
+        </div>
+
+        <div class="lock-buttons">
+
+            <button
+                id="openSurpriseBtn"
+                class="unlock-btn glow-btn">
+
+                🎁 Open Surprise
+
+            </button>
+
+            <button
+                id="cantWaitBtn"
+                class="unlock-btn secondary">
+
+                😏 I Can't Wait
+
+            </button>
+
+        </div>
+
+        <div class="lock-stats">
+
+            <div class="love-score">
+
+                Love Score :
+                <span id="loveScore">0</span>
+                ❤️
+
+            </div>
+
+            <div class="click-count">
+
+                Clicks :
+                <span id="clickCount">0</span>
+
+            </div>
+
+        </div>
+
+        <div class="extra-buttons">
+
+            <button
+                id="tryLuckBtn"
+                class="mini-btn">
+
+                🎰 Try Your Luck
+
+            </button>
+
+            <button
+                id="passwordBtn"
+                class="mini-btn">
+
+                🔐 Secret Password
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- LUCK WHEEL -->
+<!-- ===================================================== -->
+
+<div
+    id="wheelModal"
+    class="modal hidden">
+
+    <div class="modal-inner">
+
+        <button
+            class="modal-close"
+            id="wheelClose">
+
+            ✕
+
+        </button>
+
+        <div
+            class="luck-wheel"
+            id="luckWheel">
+
+            <div class="wheel-slice">🤣 Nope</div>
+            <div class="wheel-slice">❤️ Still Waiting</div>
+            <div class="wheel-slice">🎂 Almost There</div>
+            <div class="wheel-slice">😏 Nice Try</div>
+            <div class="wheel-slice">💖 Patience Please</div>
+            <div class="wheel-slice">🎁 Come Back Later</div>
+
+        </div>
+
+        <div class="wheel-pointer"></div>
+
+    </div>
+
+    <p
+        id="wheelResult"
+        class="wheel-result">
+    </p>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- PASSWORD MODAL -->
+<!-- ===================================================== -->
+
+<div
+    id="passwordModal"
+    class="modal hidden">
+
+    <div class="modal-inner">
+
+        <button
+            class="modal-close"
+            id="passwordClose">
+
+            ✕
+
+        </button>
+
+        <h2>
+            🔐 Secret Password
+        </h2>
+
+        <input
+            id="passwordInput"
+            class="password-input"
+            type="password"
+            placeholder="Enter Password">
+
+        <button
+            id="passwordSubmit"
+            class="modal-btn">
+
+            Submit
+
+        </button>
+
+        <p
+            id="passwordMsg"
+            class="password-msg">
+        </p>
+
+    </div>
+
+</div>
+<!-- ===================================================== -->
+<!-- BACKGROUND CANVAS -->
+<!-- ===================================================== -->
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- ===================================================== -->
+<!-- TOP HEADER -->
+<!-- ===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <span class="great">
+            Happy 21st Birthday,
+        </span>
+
+        <div class="name heartbeat">
+
+            Shweta
+
+            <span class="emoji">❤️</span>
+
+        </div>
+
+    </div>
+
+    <div class="controls">
+
+        <button
+            id="musicToggle"
+            class="btn small">
+
+            🎵 Music
+
+        </button>
+
+        <button
+            id="openHeart"
+            class="btn small">
+
+            💌 Open My Heart
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- TREE SECTION -->
+<!-- ===================================================== -->
+
+<section id="treeSection" class="tree-section">
+
+    <div id="main">
+
+        <div id="header">
+
+            <h1 class="tree-title">
+
+                ❤️ Click the Heart ❤️
+
+            </h1>
+
+        </div>
+
+        <div id="error"></div>
+
+        <audio
+            autoplay
+            id="myAudio">
+
+            <source src="aud.mp3" type="audio/mp3">
+
+        </audio>
+
+        <div id="wrap">
+
+            <div id="text">
+
+                <div id="code">
+
+                    <span class="say">
+                        ❤️
+                    </span>
+
+                    <br>
+
+                    <span class="say">
+
+                        Click the Heart Below
+
+                    </span>
+
+                    <br>
+
+                    <span class="say">
+
+                        Watch Our Love Grow 🌹
+
+                    </span>
+
+                    <br>
+
+                    <span class="say">
+
+                        Happy Birthday My Love ❤️
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div id="clock-box">
+
+                <span id="clock"></span>
+
+            </div>
+
+            <canvas
+                id="canvas"
+                width="1100"
+                height="680">
+
+            </canvas>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- MAIN WEBSITE -->
+<!-- ===================================================== -->
+
+<main>
+    <!-- ===================================================== -->
+<!-- HERO SECTION -->
+<!-- ===================================================== -->
+
+<section id="hero" class="hero fullscreen">
+
+    <div class="hero-inner" data-aos="fade-up">
+
+        <h1 class="main-heading">
+
+            Happy 21st Birthday ❤️
+
+        </h1>
+
+        <h2 class="hero-name">
+
+            Shweta
+
+        </h2>
+
+        <p class="sub">
+
+            Every smile of yours makes my world brighter.
+            Every moment with you becomes a beautiful memory.
+            Today is all about celebrating the most beautiful person
+            in my life.
+
+        </p>
+
+        <div class="hero-count">
+
+            🎂 03 July 2005 → 03 July 2026 🎂
+
+        </div>
+
+        <button
+            id="heroOpen"
+            class="cta">
+
+            💌 Open My Heart
+
+        </button>
+
+    </div>
+
+    <div class="rotating-timer" id="rotTimer">
+
+        <div class="rot-wrap">
+
+            <svg
+                class="rot-svg"
+                viewBox="0 0 100 100">
+
+                <circle
+                    class="rot-bg"
+                    cx="50"
+                    cy="50"
+                    r="42" />
+
+                <circle
+                    class="rot-arc"
+                    cx="50"
+                    cy="50"
+                    r="38" />
+
+            </svg>
+
+            <div class="timer-label">
+
+                ✨ 21 Years Of Pure Magic ✨
+
+            </div>
+
+            <div
+                id="liveCounter"
+                class="live-counter">
+
+                You have been making the world beautiful for...
+
+                <br><br>
+
+                <span id="ageText">
+
+                    20y 0m 0d 0h 0m 0s
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- HEART BUTTON -->
+<!-- ===================================================== -->
+
+<section
+    id="heartButtonSection"
+    class="section">
+
+    <div
+        style="text-align:center;">
+
+        <button
+            id="growTreeBtn"
+            class="cta big">
+
+            ❤️ Click Me ❤️
+
+        </button>
+
+        <p
+            style="
+                margin-top:20px;
+                font-size:18px;
+                color:#ffffff;
+                opacity:.9;
+            ">
+
+            Click the heart and watch our love blossom 🌸
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- GALLERY -->
+<!-- ===================================================== -->
+
+<section
+    id="gallery"
+    class="section">
+
+    <h2 class="section-title">
+
+        📸 Our Beautiful Memories
+
+    </h2>
+
+    <div
+        id="galleryGrid"
+        class="gallery-grid">
+
+        <!-- Images will be added by function.js -->
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- LOVE LETTER -->
+<!-- ===================================================== -->
+
+<section id="loveLetter" class="section">
+
+    <h2 class="section-title">
+        💌 A Letter To You
+    </h2>
+
+    <div class="glass-card" data-aos="fade-up">
+
+        <pre id="typewriter" class="typewriter"></pre>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SWEET QUOTES -->
+<!-- ===================================================== -->
+
+<section id="quotes" class="section">
+
+    <h2 class="section-title">
+        ❤️ Sweet Quotes ❤️
+    </h2>
+
+    <div id="quotesCarousel"
+         class="quotes-carousel">
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BIRTHDAY WISHES -->
+<!-- ===================================================== -->
+
+<section id="wishes" class="section">
+
+    <h2 class="section-title">
+
+        🎂 Birthday Wishes 🎂
+
+    </h2>
+
+    <div class="wishes-grid">
+
+        <div class="wish">
+            ✨ Happiness Beyond Limits
+        </div>
+
+        <div class="wish">
+            🌸 Beautiful Memories
+        </div>
+
+        <div class="wish">
+            ❤️ Endless Love
+        </div>
+
+        <div class="wish">
+            🎓 Success In Every Dream
+        </div>
+
+        <div class="wish">
+            🌈 Smiles Every Day
+        </div>
+
+        <div class="wish">
+            💖 Stay Happy Forever
+        </div>
+
+        <div class="wish">
+            🌹 Keep Shining
+        </div>
+
+        <div class="wish">
+            🎁 Lots Of Surprises
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- OUR JOURNEY -->
+<!-- ===================================================== -->
+
+<section id="timeline" class="section">
+
+    <h2 class="section-title">
+
+        ❤️ Our Beautiful Journey ❤️
+
+    </h2>
+
+    <div class="timeline">
+
+        <div class="milestone" data-aos="fade-right">
+
+            <div class="dot">💬</div>
+
+            <div class="txt">
+
+                First Conversation
+
+            </div>
+
+        </div>
+
+        <div class="milestone" data-aos="fade-left">
+
+            <div class="dot">😊</div>
+
+            <div class="txt">
+
+                First Smile
+
+            </div>
+
+        </div>
+
+        <div class="milestone" data-aos="fade-right">
+
+            <div class="dot">📷</div>
+
+            <div class="txt">
+
+                Our First Photo
+
+            </div>
+
+        </div>
+
+        <div class="milestone" data-aos="fade-left">
+
+            <div class="dot">🌸</div>
+
+            <div class="txt">
+
+                Beautiful Memories Together
+
+            </div>
+
+        </div>
+
+        <div class="milestone" data-aos="fade-right">
+
+            <div class="dot">🎂</div>
+
+            <div class="txt">
+
+                Happy 21st Birthday ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- FINALE -->
+<!-- ===================================================== -->
+
+<section id="finale"
+         class="section finale">
+
+    <div class="big-heart">
+
+        <div class="heart-shape"></div>
+
+        <h2 class="final-text">
+
+            ❤️ Happy Birthday Shweta ❤️
+
+        </h2>
+
+        <p class="final-sub">
+
+            You are the best thing that has ever happened to me.
+
+            <br><br>
+
+            Thank you for every smile,
+
+            every memory,
+
+            every laugh,
+
+            every little moment.
+
+        </p>
+
+        <button id="foreverBtn"
+                class="cta big">
+
+            💖 Forever & Always 💖
+
+        </button>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
+</main>
+
+<footer class="footer">
+
+    <h2>
+        ❤️ Made With Endless Love ❤️
+    </h2>
+
+    <p>
+        Happy 21st Birthday, Shweta ❤️
+    </p>
+
+    <p>
+        Forever & Always 💖
+    </p>
+
+</footer>
+
+<!-- ===================================================== -->
+<!-- AUDIO -->
+<!-- ===================================================== -->
+
+<audio
+    id="bgMusic"
+    loop>
+
+    <source src="aud.mp3" type="audio/mp3">
+
+</audio>
+
+<!-- ===================================================== -->
+<!-- IMAGE MODAL -->
+<!-- ===================================================== -->
+
+<div
+    id="modal"
+    class="modal"
+    aria-hidden="true">
+
+    <div
+        id="modalContent"
+        class="modal-content">
+
+    </div>
+
+    <button
+        id="modalClose"
+        class="modal-close">
+
+        ✕
+
+    </button>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- FLOATING HEARTS -->
+<!-- ===================================================== -->
+
+<div id="floatingHearts"></div>
+
+<!-- ===================================================== -->
+<!-- SCRIPTS -->
+<!-- ===================================================== -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="file/function.js"></script>
+
+<script src="file/love.js"></script>
+
+<script>
+
+AOS.init({
+
+    duration:1200,
+
+    once:false,
+
+    easing:"ease-in-out"
+
+});
+
+/* Music Button */
+
+const music=document.getElementById("bgMusic");
+
+document.getElementById("musicToggle").onclick=function(){
+
+    if(music.paused){
+
+        music.play();
+
+        this.innerHTML="⏸ Pause Music";
+
+    }else{
+
+        music.pause();
+
+        this.innerHTML="🎵 Music";
+
+    }
+
+};
+
+/* Open Heart Button */
+
+document.getElementById("openHeart").onclick=function(){
+
+    document.getElementById("loveLetter").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+};
+
+/* Hero Button */
+
+document.getElementById("heroOpen").onclick=function(){
+
+    document.getElementById("loveLetter").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+};
+
+/* Finale Button */
+
+document.getElementById("foreverBtn").onclick=function(){
+
+    heartBurst(60);
+
+};
+
+/* Tree Button */
+
+document.getElementById("growTreeBtn").onclick=function(){
+
+    document.getElementById("treeSection").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+};
+
+/* Auto play after unlock */
+
+setTimeout(function(){
+
+    document.getElementById("loader").style.display="none";
+
+},2000);
+
+</script>
+
+</body>
+
+</html>
+    
+    <!-- <!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Happy 21st Birthday, Shweta ❤️</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+        <link rel="stylesheet" href="file/default.css" />
+        <meta name="theme-color" content="#f9eff6" />
+    </head>
+    <body>
+
+        <div id="loader" class="loader">
+            <div class="heart-loader">
+                <div class="heart"></div>
+            </div>
+            <div class="loader-text">Loading love...</div>
+        </div>
+
+        <!-- Lock Screen Overlay -->
+        <div id="lockScreen" class="lock-screen active">
+            <canvas id="lockCanvas"></canvas>
+            <div class="lock-content">
+                <div class="lock-icon">🔒</div>
+                <h1 class="lock-title">❤️ A Special Surprise Is Waiting For You, Shweta ❤️</h1>
+                <p class="lock-subtitle">Your Birthday Celebration Opens In...</p>
+                
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="countDays" class="countdown-number">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countHours" class="countdown-number">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countMins" class="countdown-number">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-item">
+                        <span id="countSecs" class="countdown-number">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="rotating-quotes">
+                    <p id="rotatingQuote" class="quote-text">The wait is worth it for someone as special as you.</p>
+                </div>
+
+                <div class="lock-buttons">
+                    <button id="openSurpriseBtn" class="unlock-btn glow-btn">Open Surprise 🎁</button>
+                    <button id="cantWaitBtn" class="unlock-btn secondary">Click Here If You Can't Wait 😏</button>
+                </div>
+
+                <div class="lock-stats">
+                    <div class="love-score">Love Score: <span id="loveScore">0</span> ❤️</div>
+                    <div class="click-count">Clicks: <span id="clickCount">0</span></div>
+                </div>
+
+                <div class="extra-buttons">
+                    <button id="tryLuckBtn" class="mini-btn">Try Your Luck 🎰</button>
+                    <button id="passwordBtn" class="mini-btn">Secret Password 🔐</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luck Wheel Modal -->
+        <div id="wheelModal" class="modal hidden">
+            <div class="modal-inner">
+                <button class="modal-close" id="wheelClose">✕</button>
+                <div class="luck-wheel" id="luckWheel">
+                    <div class="wheel-slice">🤣 Nope</div>
+                    <div class="wheel-slice">❤️ Still Waiting</div>
+                    <div class="wheel-slice">🎂 Almost There</div>
+                    <div class="wheel-slice">😏 Nice Try</div>
+                    <div class="wheel-slice">💖 Patience Please</div>
+                    <div class="wheel-slice">🎁 Come Back Later</div>
+                </div>
+                <div class="wheel-pointer"></div>
+            </div>
+            <p id="wheelResult" class="wheel-result"></p>
+        </div>
+
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal hidden">
+            <div class="modal-inner">
+                <button class="modal-close" id="passwordClose">✕</button>
+                <h2>🔐 Secret Password</h2>
+                <input type="password" id="passwordInput" placeholder="Enter password..." class="password-input">
+                <button id="passwordSubmit" class="modal-btn">Submit</button>
+                <p id="passwordMsg" class="password-msg"></p>
+            </div>
+        </div>
+
+        <canvas id="bg-canvas"></canvas>
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="great">Happy 21st Birthday,</span>
+                <div class="name heartbeat">Shweta <span class="emoji">❤️</span></div>
+            </div>
+            <div class="controls">
+                <button id="musicToggle" class="btn small">Music</button>
+                <button id="openHeart" class="btn small">Open My Heart 💌</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="hero fullscreen">
+                <div class="hero-inner">
+                    <h1 class="main-heading">Happy 21st Birthday, My Love ❤️</h1>
+                    <p class="sub">To the most beautiful person in my life, thank you for filling every day with happiness, love, and countless memories.</p>
+                    <div class="hero-count">03 July 2005 → 03 July 2026</div>
+                    <button id="heroOpen" class="cta">Open My Heart 💌</button>
+                </div>
+                <div class="rotating-timer" id="rotTimer">
+                    <div class="rot-wrap">
+                        <svg viewBox="0 0 100 100" class="rot-svg">
+                            <circle cx="50" cy="50" r="42" class="rot-bg" />
+                            <circle cx="50" cy="50" r="38" class="rot-arc" />
+                        </svg>
+                        <div class="timer-label">21 Years of Pure Magic ✨</div>
+                        <div class="live-counter" id="liveCounter">You have been making the world beautiful for... <span id="ageText">20y 0m 0d 0h 0m 0s</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2 class="section-title">Photo Memories</h2>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- placeholders -->
+                </div>
+            </section>
+
+            <section id="loveLetter" class="section">
+                <h2 class="section-title">A Letter To You</h2>
+                <div class="glass-card" data-aos="fade-up">
+                    <pre id="typewriter" class="typewriter"></pre>
+                </div>
+            </section>
+
+            <section id="quotes" class="section">
+                <h2 class="section-title">Sweet Quotes</h2>
+                <div class="quotes-carousel" id="quotesCarousel">
+                    <!-- quotes injected -->
+                </div>
+            </section>
+
+            <section id="wishes" class="section">
+                <h2 class="section-title">Birthday Wishes</h2>
+                <div class="wishes-grid">
+                    <div class="wish">✨ Happiness beyond limits</div>
+                    <div class="wish">✨ Success in every dream</div>
+                    <div class="wish">✨ Endless laughter</div>
+                    <div class="wish">✨ Good health always</div>
+                    <div class="wish">✨ Beautiful memories</div>
+                    <div class="wish">✨ Love that grows stronger every day</div>
+                </div>
+            </section>
+
+            <section id="timeline" class="section">
+                <h2 class="section-title">Our Romantic Timeline</h2>
+                <div class="timeline">
+                    <div class="milestone" data-aos="fade-right"><div class="dot">❤️</div><div class="txt">First Conversation</div></div>
+                    <div class="milestone" data-aos="fade-left"><div class="dot">😊</div><div class="txt">First Smile</div></div>
+                    <div class="milestone" data-aos="fade-right"><div class="dot">🌟</div><div class="txt">First Special Moment</div></div>
+                    <div class="milestone" data-aos="fade-left"><div class="dot">📸</div><div class="txt">Countless Memories</div></div>
+                    <div class="milestone" data-aos="fade-up"><div class="dot">🎂</div><div class="txt">Happy 20th Birthday</div></div>
+                </div>
+            </section>
+
+            <section id="finale" class="section finale">
+                <div class="big-heart">
+                    <div class="heart-shape"></div>
+                    <h2 class="final-text">Happy 21st Birthday Shweta ❤️</h2>
+                    <p class="final-sub">You are loved more than words can ever express.</p>
+                    <button id="foreverBtn" class="cta big">Forever & Always 💖</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            Made with Endless Love ❤️ for Shweta
+        </footer>
+
+        <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_7bf2f2a5d2.mp3?filename=warm-memories-10019.mp3"></audio>
+
+        <div id="modal" class="modal" aria-hidden="true">
+            <div class="modal-content" id="modalContent"></div>
+            <button class="modal-close" id="modalClose">✕</button>
+        </div>
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script src="file/function.js"></script>
+    </body>
+</html>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday! 🎉</title>	    
+    <link type="text/css" rel="stylesheet" href="file/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="file/jquery.min.js"></script>
+    <script type="text/javascript" src="file/jscex.min.js"></script>
+    <script type="text/javascript" src="file/jscex-parser.js"></script>
+    <script type="text/javascript" src="file/jscex-jit.js"></script>
+    <script type="text/javascript" src="file/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="file/jscex-async.min.js"></script>
+    <script type="text/javascript" src="file/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="file/function.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file/love.js" charset="utf-8"></script>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            const size = Math.random() * 10 + 5;
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 0.5;
+            const xPos = Math.random() * 100;
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#FFD93D', '#FF1493', '#00CED1', '#32CD32', '#FF69B4'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.position = 'fixed';
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            confetti.style.backgroundColor = color;
+            confetti.style.borderRadius = '50%';
+            confetti.style.left = xPos + '%';
+            confetti.style.top = '-10px';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.animation = 'fall ' + duration + 's linear ' + delay + 's forwards';
+            confetti.style.zIndex = '9999';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+        }
+        
+        document.addEventListener('click', function() {
+            for(let i = 0; i < 15; i++) {
+                setTimeout(() => createConfetti(), i * 30);
+            }
+        });
+    </script>
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <h1>🎉 Happy Birthday 🎉</h1>
+        </div>
+        <div id="error"><a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a> (<a href="http://firefox.com.cn/download/">Firefox</a>)</div>
+        <audio autoplay="autoplay" height="100" width="100" id="myAudio">
+            <source src="aud.mp3" type="audio/mp3" />
+            <embed height="100" width="100" src="aud.mp3" />
+        </audio>
+        <div id="wrap">
+            <div id="text">
+                <div id="code">
+                    <span class="say emoji-large">🎉</span><br>
+                    <span class="say">My Dear Shweta ❤️,</span><br>
+                    <span class="say"><strong>Happy 21st Birthday! 🎂✨</strong></span><br>
+                    <span class="say">Aaj tujha special day aahe, ani mala fakta evdhach sangaycha aahe ki, thank you for being a part of my life.</span><br>
+                    <span class="say">Mala kadhi vatla navhta ki konitari itka important hoil majhya life madhye. Pan halu halu tu majhya jivanacha ek important part zalis.</span><br>
+                    <span class="say">Tujhyasobat kelele chats, calls, random discussions, jokes, arguments ani memories — saglach majhyasathi special aahe.</span><br>
+                    <span class="say">Ani apli bhet tar khupach special aahe. Even though aapan khup kami vel sobat spend kela asel, pan to vel majhyasathi khup special hota ani nehmich unforgettable rahil. ❤️</span><br>
+                    <span class="say">Aapan nehmi ekmekanshi agree hot nahi, kadhi kadhi bhandan pan hotat, misunderstandings pan hotat. Pan ya saglyat ek gosht constant aahe — tujhi majhya ayushyatli jaga.</span><br>
+                    <span class="say">Khara sangaycha tar, tujhyasobat vel kuthe jato te mala kalat pan nahi.</span><br>
+                    <span class="say">Ani ho, ek personal opinion...</span><br>
+                    <span class="say">Tu saglya dress madhye chan diste, pan jevha tu sadi ghaltes na, tevha kharach khup bhari diste. ❤️✨</span><br>
+                    <span class="say">Mhanun kadachit tujhe sadi wale photos mi khup vela baghto. 😄</span><br>
+                    <span class="say">Tujha smile baghitla ki mood automatically changla hoto.</span><br>
+                    <span class="say">Sakali uthlyavar tujhyashi bolayla milala ki divas khup chan suru hoto.</span><br>
+                    <span class="say">Ani tu happy aslis ki mala pan khup chan vatat.</span><br>
+                    <span class="say">Thank you for all the memories.</span><br>
+                    <span class="say">Thank you for all the laughs.</span><br>
+                    <span class="say">Thank you for being yourself.</span><br>
+                    <span class="say">Aajcha divas mast enjoy kar, khup has, khup photos kadha ani mast celebrate kar. 🎂🥳</span><br>
+                    <span class="say">Ani ho... photos mala pathvaycha visru nako. 😄❤️</span><br>
+                    <span class="say"><strong>Happy 21st Birthday, Shweta. ❤️</strong></span><br>
+                    <span class="say">Take care and keep smiling. 🌸</span><br>
+                    <span class="say emoji-large">🎊</span><br>
+                </div>
+            </div>
+            <div id="clock-box">
+                <span id="clock">577 days 0 hours 0 minutes 0 seconds</span> <!-- Change to "6940 days..." if needed -->
+            </div>
+            <canvas id="canvas" width="1100" height="680"></canvas>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var canvas = $('#canvas');
+		
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;
+        }
+
+        var width = canvas.width();
+        var height = canvas.height();        
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]] 
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650,
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function(e) {
+            playAudio();
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0; 
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function(e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        var moveAnimate = eval(Jscex.compile("async", function () {
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) {
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+            foot.draw();
+            tree.snapshot("p2", 500, 0, 610, 680);
+
+            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            canvas.css("background", "#ffe");
+            $await(Jscex.Async.sleep(300));
+            canvas.css("background", "none");
+        }));
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+            $("#code").show().typewriter();
+        }));
+	    
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+            $await(moveAnimate());
+            textAnimate().start();
+        }));
+
+        runAsync().start();
+    })();
+    </script>
+</body>
+</html> --> -->
